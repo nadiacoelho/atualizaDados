@@ -16,12 +16,12 @@ enderecoLogin = 'https://pops.ons.org.br/ons.pop.federation/?wa=wsignin1.0&wtrea
 #Fazer login e baixar arquivo:
 
 #tentativa com Sessions:
+loginData = {"username" : usuario , "password" : senha, "submit.Signin" : "true"}
 s = requests.Session()
-r1 = s.post(enderecoLogin, {"username" : usuario , "password" : senha, "submit.Signin" : "true"})
+s.post(enderecoLogin, loginData)
 home = 'https://cdre.ons.org.br/default.aspx'
-r2 = requests.get(home)
-print(r1.status_code)
-print(r1.url)
+r2 = s.get(home)
+
 print (r2.status_code)
 print(r2.url)
 print(enderecoLogin)
