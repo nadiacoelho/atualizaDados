@@ -1,21 +1,23 @@
 import datetime
 
+#'http://sdro.ons.org.br/SDRO/DIARIO/2018_04_10/Html/DIARIO_10-04-2018.xlsx'
+
 a = datetime.date.today().year
 m = datetime.date.today().month
-d = datetime.date.today().day
+d = datetime.date.today().day - 1
 
 baseIPDO = 'http://sdro.ons.org.br/SDRO/DIARIO/'
 
 if m < 10:
     if d < 10:
-        enderecoIPDO = baseIPDO + str(a) + '_0' + str(d) + '_0' + str(m) + '/Html/DIARIO_0' + str(d) + '-0' + str(m) + '-' + str(a) + '.xlsx'
+        enderecoIPDO = baseIPDO + str(a) + '_0' + str(m) + '_0' + str(d) + '/Html/DIARIO_0' + str(d) + '-0' + str(m) + '-' + str(a) + '.xlsx'
     else:
-        enderecoIPDO = baseIPDO + str(a) + '' + str(d) + '_0' + str(m) + '/Html/DIARIO' + str(d) + '-0' + str(m) + '-' + str(a) + '.xlsx'
+        enderecoIPDO = baseIPDO + str(a) + '_0' + str(m) + '_' + str(d) + '/Html/DIARIO_' + str(d) + '-0' + str(m) + '-' + str(a) + '.xlsx'
 else:
     if d < 10:
-        enderecoIPDO = baseIPDO + str(a) + '0' + str(d) + '' + str(m) + '/Html/DIARIO_0' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
+        enderecoIPDO = baseIPDO + str(a) + '_0' + str(m) + '_' + str(d) + '/Html/DIARIO_0' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
     else:
-        enderecoIPDO = baseIPDO + str(a) + '' + str(d) + '' + str(m) + '/Html/DIARIO_' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
+        enderecoIPDO = baseIPDO + str(a) + '_' + str(m) + '_' + str(d) + '/Html/DIARIO_' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
 
 print(enderecoIPDO)
 

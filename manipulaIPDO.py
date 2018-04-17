@@ -2,10 +2,11 @@ import pandas as pd
 import acessaIPDO
 import montaURL_IPDO
 
-writer = pd.ExcelWriter("RelatorioIPDO.xlsx") #para usar essa função, é necessário instalar o pacote "xlsxwriter" ou "openpyxl"
+writer = pd.ExcelWriter("RelatorioIPDO.xlsx", engine= 'openpyxl') #para usar essa função, é necessário instalar o pacote "xlsxwriter" ou "openpyxl"
 
 #definições relativas às tabelas em análise para indexação
-dia = 3
+dia = 15
+
 linhaDoDia = dia + 5
 #para a Energia Armazenada:
 capacidadeMaxima = 3
@@ -82,19 +83,18 @@ writer.save()
 #acessa dados por subsistema: (arquivo .xlsx, nome da planilha)
 energiaNaturalAfluente = pd.read_excel(acessaIPDO.destino, "21-Energia Natural Afluente")
 print(energiaNaturalAfluente.head(10))
-enaNorte = pd.Series(energiaArmazenada.iloc[linNorteENA,1:], name= "Norte")
+enaNorte = pd.Series(energiaNaturalAfluente.iloc[linNorteENA,1:], name= "Norte")
 enaNorte.set_axis(indexENA, inplace=True)
 #print(enaNorte)
-enaNordeste = pd.Series(energiaArmazenada.iloc[linNordesteENA,1:], name= "Nordeste")
+enaNordeste = pd.Series(energiaNaturalAfluente.iloc[linNordesteENA,1:], name= "Nordeste")
 enaNordeste.set_axis(indexENA, inplace=True)
 #print(enaNordeste)
-enaSul = pd.Series(energiaArmazenada.iloc[linSulENA,1:], name= "Sul")
+enaSul = pd.Series(energiaNaturalAfluente.iloc[linSulENA,1:], name= "Sul")
 enaSul.set_axis(indexENA, inplace=True)
 #print(enaSul)
-enaSudeste = pd.Series(energiaArmazenada.iloc[linSudesteENA,1:], name= "Sudeste")
+enaSudeste = pd.Series(energiaNaturalAfluente.iloc[linSudesteENA,1:], name= "Sudeste")
 enaSudeste.set_axis(indexENA, inplace=True)
 #print(enaSudeste)
-
 
 #cria o Dataframe com os novos dados
 dadosENA = [enaNorte, enaNordeste, enaSul, enaSudeste]
