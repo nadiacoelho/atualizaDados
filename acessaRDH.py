@@ -1,14 +1,14 @@
 import requests
 import urllib.request
 import userSettings
-import montaURL
+import montaURL_RDH
 
 #Destino e origem do arquivo:
-destino = 'RDH_' + str(montaURL.d) + montaURL.mes + str(montaURL.a) + '.xlsx'
-enderecoDownload = montaURL.enderecoRDH
+destino = 'RDH_' + str(montaURL_RDH.d) + montaURL_RDH.mes + str(montaURL_RDH.a) + '.xlsx'
+enderecoDownload = montaURL_RDH.enderecoRDH
 
 #Dados de login:
-enderecoLogin = montaURL.enderecoLogin
+enderecoLogin = montaURL_RDH.enderecoLogin
 usuario = userSettings.usuario
 senha = userSettings.senha
 
