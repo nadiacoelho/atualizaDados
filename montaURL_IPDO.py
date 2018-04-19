@@ -4,7 +4,8 @@ import datetime
 
 a = datetime.date.today().year
 m = datetime.date.today().month
-d = datetime.date.today().day - 1
+#d = datetime.date.today().day - 1
+d = 2
 
 baseIPDO = 'http://sdro.ons.org.br/SDRO/DIARIO/'
 
@@ -18,8 +19,6 @@ else:
         enderecoIPDO = baseIPDO + str(a) + '_0' + str(m) + '_' + str(d) + '/Html/DIARIO_0' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
     else:
         enderecoIPDO = baseIPDO + str(a) + '_' + str(m) + '_' + str(d) + '/Html/DIARIO_' + str(d) + '-' + str(m) + '-' + str(a) + '.xlsx'
-
-print(enderecoIPDO)
 
 if m == 1:
     mes = 'JAN'
